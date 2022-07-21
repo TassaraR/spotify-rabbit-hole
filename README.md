@@ -1,39 +1,66 @@
-# spotify_rabbit_hole
-Choose an artist. Takes i songs from j related artists. Repeat k times. Update your queue or plot the resulting graph
+# Spotify Artists Rabbit Hole
 
-### Usage:
-```
-positional arguments:
-  artist                Input the name of the desired artist
+- Retrieves songs from n artists related to other n artists and so on. 
+- Builds a graph with the relationship of every artist displayed within streamlit.
+- Extracts most popular tracks with metadata of retrieved artists
 
-optional arguments:
-  -h, --help              Show this help message and exit                                    
-  -t TOTAL, --total       Total related artists                   (default = 5)                    
-  -r RELATED, --related   Number of related artists per artist    (default = 2)                  
-  -s SONGS, --songs       Number of songs per artist              (default = 1)              
-  -p PLOT, --plot         Plot graph of related artists           (default = False)                    
-```
+---
+## Usage
 
-#### Example:
+### Create data
+
+Set environment variables
 ```
-$python rabbit_hole.py Alt-J
-```
-```
-Artists:
-alt-J, Grouplove, Beirut, Bleachers, Hippo Campus, Fleet Foxes
-----------------------------------------
-Grouplove:
-        -Bleachers, Hippo Campus
-alt-J:
-        -Grouplove, Beirut
-Beirut:
-        -Fleet Foxes
-----------------------------------------
-Total Songs: 5
-Add songs to queue? Y/N?
+SPOTIFY_USERNAME
+SPOTIFY_CLIENT_ID
+SPOTIFY_CIENT_SECRET
 ```
 
-#### Graph example:
-> Searched for: Led Zeppelin
+```bash
+pip install -r requirements.txt
+```
 
-![GitHub Logo](/led_zeppelin_30_test.png)
+Run `create_data.py` to create the datasets
+```
+python api/create_data.py --max-artists 4 \
+                          --n-related 2 \
+                          --n-tracks 2 \
+                          --output-dir sample_data
+```
+
+2 output files will be created inside the output directory
+```
+── sample_data/
+   ├── graph.pkl
+   └── songs.csv
+```
+
+### Streamlit
+##### Locally
+
+```bash
+pip install -r requirements.txt
+```
+
+Change `serverAddress` to `localhost` in `.streamlit/config.toml` if its set to `0.0.0.0`
+
+```
+streamlit run streamlit_app/app.py
+```
+
+##### Docker
+
+Build the image
+```bash
+docker build -t st_rabbit_hole:latest .
+```
+
+Run the container
+```bash
+docker run --rm -p 8501:8501 st_rabbit_hole:latest . 
+```
+
+---
+## Example graph
+
+<img src="examples/the_beatles.png" alt="yapo" width=300>

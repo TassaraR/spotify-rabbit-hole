@@ -1,0 +1,17 @@
+div.stApp {{
+    background: linear-gradient(#2c3e40 10%, #121212 90%);
+}}
+div.block-container {{
+    max-width: 60%;
+}}
+div.bk.bk-tooltip-row-label {{
+    color: #1DB954;
+}}
+a.bk.bk-logo.bk-logo-small{{
+    display:none !important;
+}}
+#{title} {{
+    text-align: center;
+    font-smooth: auto;
+    color: #1DB954;
+}}

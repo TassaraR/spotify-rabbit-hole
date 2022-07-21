@@ -1,4 +1,12 @@
-.ipynb_checkpoints/
-__pycache__/
-creds.pickle
-spotifyApp.ipynb
+**/.ipynb_checkpoints/
+**/__pycache__/
+**/.idea/
+api/spotify_rabbit_hole.py
+**/*.pkl
+**/*.html
+**/*.ipynb
+**/*.csv
+**/.cache-*
+**/*.bat
+**/*.bash
+**/*.sh

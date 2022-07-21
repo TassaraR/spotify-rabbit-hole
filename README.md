@@ -1,6 +1,6 @@
 # Spotify Artists Rabbit Hole
 
-- Retrieves songs from n artists related to other n artists and so on. 
+- Retrieves songs from n artists related to other n artists and so on starting from a base artist. 
 - Builds a graph with the relationship of every artist displayed within streamlit.
 - Extracts most popular tracks with metadata of retrieved artists
 
@@ -22,7 +22,8 @@ pip install -r requirements.txt
 
 Run `create_data.py` to create the datasets
 ```
-python api/create_data.py --max-artists 4 \
+python api/create_data.py --artist "The Beatles" \
+                          --max-artists 4 \
                           --n-related 2 \
                           --n-tracks 2 \
                           --output-dir sample_data
@@ -30,7 +31,7 @@ python api/create_data.py --max-artists 4 \
 
 2 output files will be created inside the output directory
 ```
-── sample_data/
+── sample_data
    ├── graph.pkl
    └── songs.csv
 ```

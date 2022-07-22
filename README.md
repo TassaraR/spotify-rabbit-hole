@@ -58,7 +58,7 @@ docker build -t st_rabbit_hole:latest .
 
 Run the container
 ```bash
-docker run --rm -p 8501:8501 st_rabbit_hole:latest . 
+docker run --rm -p 8501:8501 st_rabbit_hole:latest
 ```
 
 ---

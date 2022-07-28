@@ -44,5 +44,4 @@ def altair_scatter_plot(df: pd.DataFrame) -> alt.vegalite.v4.api.Chart:
                                 scaler,
                                 selector)
 
-    print(type(scatter))
     return scatter

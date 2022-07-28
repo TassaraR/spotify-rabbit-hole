@@ -18,6 +18,11 @@ button[title="View fullscreen"]{{
     font-smooth: auto;
     color: #1DB954;
 }}
+#extracted-artists-tracks{{
+    text-align: center;
+    font-smooth: auto;
+    color: #1DB954;
+}}
 span.class.vega-bind-name{{
     font-smooth: auto;
     font-family: "Source Sans Pro", sans-serif;
@@ -48,4 +53,12 @@ select[name^="selector"]{{
 }}
 ::-webkit-scrollbar-thumb {{
   background: #f1f1f1;
+}}
+
+div[class^="streamlit-expanderHeader"]:hover {{
+	color: #1DB954;
+    font-family: "Source Sans Pro", sans-serif;
+}}
+div[class^="streamlit-expanderHeader"] {{
+    font-family: "Source Sans Pro", sans-serif;
 }}

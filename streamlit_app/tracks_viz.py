@@ -1,9 +1,10 @@
 import altair as alt
+import pandas as pd
 
 
-def altair_scatter_plot(df, x, y, name):
+def altair_scatter_plot(df: pd.DataFrame) -> alt.vegalite.v4.api.Chart:
 
-    base_options = list(df[name].unique())
+    base_options = list(df['artist_name'].unique())
     options = [None] + base_options
     options_labels = ['All artists'] + base_options
     input_dropdown = alt.binding_select(options=options,
@@ -21,9 +22,9 @@ def altair_scatter_plot(df, x, y, name):
                               color="#1DB954",
                               stroke='#1f1e1e',
                               strokeWidth=1)\
-                 .encode(alt.X(x,
+                 .encode(alt.X('duration_min',
                                title='Duration (Min)'),
-                         alt.Y(y,
+                         alt.Y('popularity',
                                title='Popularity',
                                scale=alt.Scale(domain=[0, 100])),
                          opacity=alt.condition(dropdown & selector,
@@ -31,8 +32,8 @@ def altair_scatter_plot(df, x, y, name):
                                                alt.value(0.05)),
                          tooltip=[alt.Tooltip('track_name', title='Track'),
                                   alt.Tooltip('artist_name', title='Artist'),
-                                  alt.Tooltip(x, title='Duration (min)'),
-                                  alt.Tooltip(y, title='Popularity')])\
+                                  alt.Tooltip('duration_min', title='Duration (min)'),
+                                  alt.Tooltip('popularity', title='Popularity')])\
                  .properties(height=350,
                              width=500)\
                  .configure_axis(titleFontSize=16,
@@ -43,10 +44,5 @@ def altair_scatter_plot(df, x, y, name):
                                 scaler,
                                 selector)
 
+    print(type(scatter))
     return scatter
-
-
-
-
-
-

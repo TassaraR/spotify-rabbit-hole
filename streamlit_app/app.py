@@ -66,10 +66,7 @@ st.bokeh_chart(plot_graph, use_container_width=True)
 
 st.markdown("---")
 st.title('Tracks')
-alt_scatter = altair_scatter_plot(songs,
-                                  x='duration_min',
-                                  y='popularity',
-                                  name='artist_name')
+alt_scatter = altair_scatter_plot(songs)
 st.altair_chart(alt_scatter, use_container_width=True)
 
 st.markdown("---")

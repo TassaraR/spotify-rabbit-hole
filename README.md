@@ -62,6 +62,8 @@ docker run --rm -p 8501:8501 st_rabbit_hole:latest
 ```
 
 ---
-## Example graph
+## Examples
 
-<img src="examples/the_beatles.png" alt="yapo" width=550>
+<img src="examples/the_beatles_graph.PNG" alt="graph" width=550>
+
+<img src="examples/the_beatles_scatter.PNG" alt="scatter" width=550>

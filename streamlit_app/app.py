@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import pandas as pd
+from tracks_viz import altair_scatter_plot
 from graph import (create_nx_graph,
                    hierarchy_pos,
                    create_nx_bokeh)
@@ -36,6 +37,8 @@ extract $k$ of its most popular tracks.
 
 The graph can be dragged, zoomed and reset if needed. Hovering over the nodes displays the artists 
 tracks.
+
+---
 """
 st.markdown(description, unsafe_allow_html=True)
 
@@ -47,6 +50,7 @@ with open('sample_data/graph.pkl', 'rb') as f:
 songs = pd.read_csv('sample_data/songs.csv')
 songs['artist_name'] = songs['artist_uri']\
                         .map(graph_params['labels'])
+songs['duration_min'] = songs['duration_min'].round(2)
 
 G = create_nx_graph(**graph_params, songs=songs)
 radial_pos = hierarchy_pos(G, kind='radial')
@@ -57,6 +61,15 @@ plot_graph = create_nx_bokeh(G,
                              width=700,
                              height=700)
 
-ct = st.container()
-ct.bokeh_chart(plot_graph, use_container_width=True)
+# ct = st.container()
+st.bokeh_chart(plot_graph, use_container_width=True)
+
+st.markdown("---")
+st.title('Tracks')
+alt_scatter = altair_scatter_plot(songs,
+                                  x='duration_min',
+                                  y='popularity',
+                                  name='artist_name')
+st.altair_chart(alt_scatter, use_container_width=True)
+
 st.markdown("---")

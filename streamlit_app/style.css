@@ -10,8 +10,55 @@ div.bk.bk-tooltip-row-label {{
 a.bk.bk-logo.bk-logo-small{{
     display:none !important;
 }}
+button[title="View fullscreen"]{{
+    display:none !important;
+}}
 #{title} {{
     text-align: center;
     font-smooth: auto;
     color: #1DB954;
+}}
+#extracted-artists-tracks{{
+    text-align: center;
+    font-smooth: auto;
+    color: #1DB954;
+}}
+span.class.vega-bind-name{{
+    font-smooth: auto;
+    font-family: "Source Sans Pro", sans-serif;
+}}
+select[name^="selector"]{{
+    background-color: rgb(38, 39, 48);
+    border-bottom-color: rgb(38, 39, 48);
+    border-top-color: rgb(38, 39, 48);
+    border-right-color: rgb(38, 39, 48);
+    border-left-color: rgb(38, 39, 48);
+    color: rgb(250, 250, 250);
+    transition-timing-function: cubic-bezier(0.2, 0.8, 0.4, 1);
+    transition-property: border, box-shadow, background-color;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    cursor: text;
+    overflow: hidden;
+    font-family: "Source Sans Pro", sans-serif;
+}}
+::-webkit-scrollbar-track {{
+  background: #888;
+}}
+::-webkit-scrollbar-thumb {{
+  background: #f1f1f1;
+}}
+
+div[class^="streamlit-expanderHeader"]:hover {{
+	color: #1DB954;
+    font-family: "Source Sans Pro", sans-serif;
+}}
+div[class^="streamlit-expanderHeader"] {{
+    font-family: "Source Sans Pro", sans-serif;
 }}

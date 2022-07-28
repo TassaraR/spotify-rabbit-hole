@@ -100,7 +100,7 @@ def create_nx_bokeh(G: nx.classes.graph.Graph,
     plot.add_tools(*tools)
     plot.toolbar.active_drag = pan
     plot.toolbar.active_scroll = wheel_zoom
-    plot.toolbar_location = 'below'
+    plot.toolbar_location = 'below'  # above
 
     graph = from_networkx(G, layout)
     graph.node_renderer.glyph = Circle(size=80,

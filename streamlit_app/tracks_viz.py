@@ -5,6 +5,7 @@ import pandas as pd
 def altair_scatter_plot(df: pd.DataFrame) -> alt.vegalite.v4.api.Chart:
 
     base_options = list(df['artist_name'].unique())
+    base_options.sort()
     options = [None] + base_options
     options_labels = ['All artists'] + base_options
     input_dropdown = alt.binding_select(options=options,
